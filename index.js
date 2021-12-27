@@ -3,8 +3,6 @@
 //webフック設定とエンドポイント設定忘れずに
 "use strict";
 
-
-
 //インスタンス化
 const express = require("express");
 const app = express();
@@ -13,8 +11,8 @@ const line = require("@line/bot-sdk");
 
 // Bot用情報
 const config = {
-    channelSecret: "2dbbba79ec37c20029645999d914121b",
-    channelAccessToken: "/RW7sk96rCdncqvmagFSyaYVR6TW9ui2UR15DBTM6w4UEDzT6HPGaLtUgpF2nvSqvZ8C2o/gqIEMCn3SeKqjkfP706ZE8HKw9siKb23V0cgnLgCl02xSGgD9/GMf6AcsjisOa6JiA0SCnRyFUjkGngdB04t89/1O/w1cDnyilFU=",
+    channelSecret: "hogehoge",
+    channelAccessToken: "hogehoge",
 };
 const client = new line.Client(config);
 
@@ -40,7 +38,7 @@ function handleEvent(event) {
     }
 
     if (event.type == 'message' && event.message.type == 'location') {
-        var liffUrl = util.format('https://liff.line.me/1656700141-aX1YvJwZ/?lat=%s&lon=%s', event.message.latitude, event.message.longitude);
+        var liffUrl = util.format('hogehoge/?lat=%s&lon=%s', event.message.latitude, event.message.longitude);
         const templateMassage = {
             type: 'template',
             altText: '検索方法を指定',
@@ -72,7 +70,7 @@ function handleEvent(event) {
         if (event.type == 'postback') {
 
             var latlon = JSON.parse(event.postback.data)
-            url = util.format('https://map.yahooapis.jp/search/local/V1/localSearch?appid=dj00aiZpPWdsRHdPYVE4QlRWTSZzPWNvbnN1bWVyc2VjcmV0Jng9MGM-&lat=%s&lon=%s&open=now&dist=3&output=json', latlon.lat, latlon.lon);
+            url = util.format('https://map.yahooapis.jp/search/local/V1/localSearch?appid=hogehoge&lat=%s&lon=%s&open=now&dist=3&output=json', latlon.lat, latlon.lon);
         } else {
 
 
@@ -103,7 +101,7 @@ function handleEvent(event) {
             }
             var week = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']['月火水木金土日'.indexOf(searchQuery.day.substring(0, 1))]
             var hour = searchQuery.time.slice(0, -1)
-            url = util.format('https://map.yahooapis.jp/search/local/V1/localSearch?appid=dj00aiZpPWdsRHdPYVE4QlRWTSZzPWNvbnN1bWVyc2VjcmV0Jng9MGM-&lat=%s&lon=%s&smoking=%i%s&open=%s,%s&dist=3&output=json', lat, lon, smoke, creditcard, week, hour);
+            url = util.format('https://map.yahooapis.jp/search/local/V1/localSearch?appid=hogehoge&lat=%s&lon=%s&smoking=%i%s&open=%s,%s&dist=3&output=json', lat, lon, smoke, creditcard, week, hour);
         }
         var request = require('sync-request');
         var res = request('GET', url);
